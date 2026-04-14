@@ -42,12 +42,16 @@ def format_laps(timer):
 
 
 def fastest_lap(timer):
-  for i in timer['times']:
-    min = timer['times'][0]
-    if i < min:
-      min = i
-    return min
-  
+    times = timer['times']
+    if not times:
+        return None
+
+    fastest = times[0]
+    for t in times:
+        if t < fastest:
+            fastest = t
+
+    return fastest
 
 
 def fastest_multi_lap(timer, k):
