@@ -6,18 +6,23 @@ import lap_timer
 
 
 def main():
-    # TODO: Pedir el nombre del archivo al usuario usando input()
+    Doc_name = input("Enter the CSV file name:\n")
     
-    # TODO: Abrir el archivo y leer el numero de vueltas n
+    with open(Doc_name, 'r') as file:
+        n = int(file.readline().strip())
+    timer = lap_timer.init(n)
+    for i in range(n):
+        with open(Doc_name, 'r') as file:
+            lines = file.readlines()
+            time = float(lines[i + 1].strip())
+            timer = lap_timer.add_lap(timer, time)
     
-    # TODO: Crear el cronometro usando lap_timer.init(n)
+result = lap_timer.longest_decreasing_streak(timer)
+print("Longest decreasing streak:", result)
     
-    # TODO: Leer los n tiempos de vuelta y agregarlos con lap_timer.add_lap()
-    
-    # TODO: Imprimir la racha decreciente mas larga
+   
     #       usando lap_timer.longest_decreasing_streak()
-    
-    pass
+
 
 
 if __name__ == "__main__":
