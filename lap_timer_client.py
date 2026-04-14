@@ -11,18 +11,14 @@ def main():
     with open(Doc_name, 'r') as file:
         n = int(file.readline().strip())
     timer = lap_timer.init(n)
-    for i in range(n):
-        with open(Doc_name, 'r') as file:
-            lines = file.readlines()
-            time = float(lines[i + 1].strip())
-            timer = lap_timer.add_lap(timer, time)
-    
-result = lap_timer.longest_decreasing_streak(timer)
+    for _ in range(n):
+        time = float(file.readline().strip())
+        timer = lap_timer.add_lap(timer, time)
+   
+result = lap_timer.longest_decreasing_streak()
 print("Longest decreasing streak:", result)
     
-   
-   
-    #       usando lap_timer.longest_decreasing_streak()
+ 
 
 
 
