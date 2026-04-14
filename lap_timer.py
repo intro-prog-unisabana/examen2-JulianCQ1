@@ -51,9 +51,11 @@ def fastest_lap(timer):
 
 
 def fastest_multi_lap(timer, k):
-    """
-    Retorna el tiempo acumulado mas rapido de cualquier k vueltas consecutivas.
-    """
+    times = timer['times']
+    n = len(times)
+    if k > n and k == 0:
+       return None
+    min_sum = sum(times[0:k])
     # TODO: Implementar
     pass
 
