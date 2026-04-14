@@ -21,6 +21,7 @@ def add_lap(timer, time):
         return timer 
     timer['times'].append(time)
     timer['total'] += time
+    return timer
 
 
 
