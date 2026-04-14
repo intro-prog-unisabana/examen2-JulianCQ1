@@ -21,6 +21,7 @@ result = lap_timer.longest_decreasing_streak(timer)
 print("Longest decreasing streak:", result)
     
    
+   
     #       usando lap_timer.longest_decreasing_streak()
 
 
