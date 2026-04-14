@@ -58,19 +58,26 @@ def fastest_multi_lap(timer, k):
     min_sum = sum(times[0:k])
     current_sum = min_sum
     for i in range(k, n):
-        current_sum = times[i] - times[i - k]
+        current_sum += times[i] - times[i - k]
         if current_sum < min_sum:
             min_sum = current_sum
     return min_sum
 
 def longest_decreasing_streak(timer):
-    """
-    Retorna la longitud maxima de una secuencia de vueltas consecutivas
-    donde los tiempos disminuyen estrictamente.
-    """
-    # TODO: Implementar
-    pass
-
+    times = timer['times']
+    if not times:
+        return 0
+    max_streak = 1
+    current_streak = 1
+    for i in range(1, len(times)):
+        if times[i] < times[i - 1]:
+            current_streak += 1
+        else:
+            max_streak = max(max_streak, current_streak)
+            current_streak = 1 
+    return max_streak
+ 
+  
 
 def main():
     # crear un cronometro para el record mundial de 100m de Usain Bolt,
